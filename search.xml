@@ -380,35 +380,6 @@ Date: 2015年12月23日
     </entry>
     
     <entry>
-      <title><![CDATA[Ubuntu Server 安装gnome桌面]]></title>
-      <url>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</url>
-      <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 安装gnome桌面
-Date: 2015年12月15日
--->
-<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
-<a id="more"></a>
-<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
-<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
-<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
-<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
-      
-        <categories>
-            
-            <category> 技术博文 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> ubuntu-server </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Ubuntu Server 更新源列表]]></title>
       <url>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</url>
       <content type="html"><![CDATA[<!--
@@ -426,6 +397,35 @@ Date: 2015年12月15日
 <li>p(小写) 在当前光标后粘贴</li>
 <li>P(大写) 在当前光标粘贴</li>
 </ul>]]></content>
+      
+        <categories>
+            
+            <category> 技术博文 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ubuntu-server </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ubuntu Server 安装gnome桌面]]></title>
+      <url>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</url>
+      <content type="html"><![CDATA[<!--
+Title: Ubuntu Server 安装gnome桌面
+Date: 2015年12月15日
+-->
+<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
+<a id="more"></a>
+<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
+<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
+<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
       
         <categories>
             
