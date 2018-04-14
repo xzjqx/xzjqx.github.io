@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo,GitHub Pages,Coding Pages,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -59,18 +59,19 @@
 
 
 
-<meta name="description" content="这是我第一次在自己搭建的博客上编写Markdown文章，现在心里还是有点小激动经过几天的检索+实验+再检索+再实验，终于把这样的一个Hexo博客搭建好了，现在正是心情大好，是时候LOL一发了……额，别跑题==">
-<meta name="keywords" content="Hexo,GitHub Pages,Coding Pages">
+<meta name="description" content="记录Vivado使用过程中的一些问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录Hexo的搭建过程">
-<meta property="og:url" content="http://xzjqx.data/2015/11/16/hexo-build/index.html">
+<meta property="og:title" content="Vivado问题总结">
+<meta property="og:url" content="http://xzjqx.data/2018/04/14/Vivado问题总结/index.html">
 <meta property="og:site_name" content="xzjqx&#39;s blog">
-<meta property="og:description" content="这是我第一次在自己搭建的博客上编写Markdown文章，现在心里还是有点小激动经过几天的检索+实验+再检索+再实验，终于把这样的一个Hexo博客搭建好了，现在正是心情大好，是时候LOL一发了……额，别跑题==">
+<meta property="og:description" content="记录Vivado使用过程中的一些问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-13T02:40:48.873Z">
+<meta property="og:image" content="http://xzjqx.data/2018/04/14/Vivado问题总结/启动超时.png">
+<meta property="og:updated_time" content="2018-04-14T05:57:47.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记录Hexo的搭建过程">
-<meta name="twitter:description" content="这是我第一次在自己搭建的博客上编写Markdown文章，现在心里还是有点小激动经过几天的检索+实验+再检索+再实验，终于把这样的一个Hexo博客搭建好了，现在正是心情大好，是时候LOL一发了……额，别跑题==">
+<meta name="twitter:title" content="Vivado问题总结">
+<meta name="twitter:description" content="记录Vivado使用过程中的一些问题。">
+<meta name="twitter:image" content="http://xzjqx.data/2018/04/14/Vivado问题总结/启动超时.png">
 
 
 
@@ -88,7 +89,7 @@
   };
 </script>
 
-  <title> 记录Hexo的搭建过程 | xzjqx's blog </title>
+  <title> Vivado问题总结 | xzjqx's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +241,7 @@
             
             
               
-                记录Hexo的搭建过程
+                Vivado问题总结
               
             
           </h1>
@@ -252,35 +253,16 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-16T11:11:48+08:00" content="2015-11-16">
-              2015-11-16
+            <time itemprop="dateCreated" datetime="2018-04-14T13:21:46+08:00" content="2018-04-14">
+              2018-04-14
             </time>
           </span>
 
-          <span class="post-count">&nbsp; | &nbsp;字数 703</span>
-          <span class="post-count">&nbsp; | &nbsp;阅读预计 3分钟</span>
+          <span class="post-count">&nbsp; | &nbsp;字数 377</span>
+          <span class="post-count">&nbsp; | &nbsp;阅读预计 2分钟</span>
           <!--&nbsp; | &nbsp;阅读次数<span id="busuanzi_value_page_pv"></span>-->
 
           <!--
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术博文/" itemprop="url" rel="index">
-                    <span itemprop="name">技术博文</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
           -->
 
@@ -289,8 +271,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/16/hexo-build/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/hexo-build/" itemprop="commentsCount"></span>
+                <a href="/2018/04/14/Vivado问题总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/14/Vivado问题总结/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -313,19 +295,28 @@
       
 
       
-        <p>这是我第一次在自己搭建的博客上编写Markdown文章，现在心里还是有点小激动<br>经过几天的检索+实验+再检索+再实验，终于把这样的一个Hexo博客搭建好了，现在正是心情大好，是时候LOL一发了……额，别跑题==<br><a id="more"></a><br>好了，到正题了，以下是我的搭建实录：<br>我使用的是 Hexo+Github 部署的博客系统：</p>
+        <p>记录Vivado使用过程中的一些问题。<br><a id="more"></a></p>
+<h2 id="Vivado-2017-3-启动超时"><a href="#Vivado-2017-3-启动超时" class="headerlink" title="Vivado 2017.3 启动超时"></a>Vivado 2017.3 启动超时</h2><p>Vivado启动两分钟后弹出如下界面，显示Vivado启动超时：<br><img src="启动超时.png" alt="启动超时"><br>我是在更新了Windows10系统到1790版本后出现这一问题，在<a href="https://forums.xilinx.com" target="_blank" rel="external">Xilinx论坛</a>发现同一问题，Xilinx官方也发现并解决了这个BUG。</p>
 <blockquote>
-<p>GitHub is a Web-based Git repository hosting service. ——<a href="https://en.wikipedia.org/wiki/GitHub" target="_blank" rel="external">Wikipedia</a><br>Hexo is a fast, simple &amp; powerful blog framework, powered by Node.js. ——<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a></p>
+<p>After installing the Windows 10 Fall Creators update (version 1709), when I try to launch Vivado, it fails or crashes.</p>
 </blockquote>
-<h1 id="Hexo的安装过程查看Hexo静态博客使用指南"><a href="#Hexo的安装过程查看Hexo静态博客使用指南" class="headerlink" title="Hexo的安装过程查看Hexo静态博客使用指南"></a>Hexo的安装过程查看<a href="http://www.tuicool.com/articles/Jva2iaA" target="_blank" rel="external">Hexo静态博客使用指南</a></h1><p>这是在 Mac or Linux 下的安装， Windows 的安装几乎一样，只是要你转到 git bash 下执行这些操作了（<del>熟悉使用</del>git就能很快上手）</p>
-<h1 id="配置-Github-Pages"><a href="#配置-Github-Pages" class="headerlink" title="配置 Github Pages"></a>配置 Github Pages</h1><p>使用<a href="https://github.com/" target="_blank" rel="external">Github</a>之前需要注册账号，并添加 SSH key，请移步<a href="http://jingyan.baidu.com/article/a65957f4f0acc624e67f9bc1.html" target="_blank" rel="external">如何SHH key给GITHUB</a></p>
-<h1 id="在-Github-添加仓库"><a href="#在-Github-添加仓库" class="headerlink" title="在 Github 添加仓库"></a>在 Github 添加仓库</h1><p>在 Github 中添加名为 yourname.github.io 的仓库，比如我的就是 xiao-jian.github.io 然后将形如 git@github.com:xzjqx/xzjqx.github.io.git 的SSH保存下来方便在 Hexo 中配置</p>
-<h1 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h1><p>我把网站部署在了 Github 上，修改 Hexo 根目录下的_config.yml文件（在deploy下添加）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: git@github.com:Xiao-Jian/xiao-jian.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>然后使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g #hexo generate</div><div class="line">hexo d #hexo deploy</div></pre></td></tr></table></figure>
-<p>第一次部署发现提示错误信息：ERROR Deployer not found : git<br>需要先运行以下命令npm install hexo-deployer-git –save<br>再次部署即可成功。</p>
-<p>当然还可以在部署之前使用hexo s #hexo serve在本地服务器提前查看效果——在浏览器中输入localhost:4000查看效果</p>
+<p>解决方法如下<a href="https://www.xilinx.com/support/answers/69908.html" target="_blank" rel="external">AR# 69908</a>：</p>
+<blockquote>
+<p>While this update for Windows 10 is not officially supported with Vivado 2017.3, the following work-around is available:</p>
+<ol>
+<li>Navigate to (Vivado Installed Directory)\2017.3\bin\unwrapped\win64.o</li>
+<li>Backup ‘<strong>vivado.exe</strong>‘ by renaming it to ‘<strong>vivado.exe.backup</strong>‘</li>
+<li>Copy ‘<strong>vivado-vg.exe</strong>‘ and paste it into the same folder.</li>
+<li>Rename ‘<strong>vivado-vg - Copy.exe</strong>‘ to ‘<strong>vivado.exe</strong>‘</li>
+</ol>
+</blockquote>
+<p>简单翻译一下：<br>当Windows10更新之后发现不能打开Vivado时，执行以下步骤：</p>
+<ul>
+<li>进入“Vivado安装目录\2017.3\bin\unwrapped\win64.0\”</li>
+<li>将’<strong>vivado.exe</strong>‘重命名为<strong>vivado.exe.backup</strong>‘</li>
+<li>将’<strong>vivado-vg.exe</strong>‘ 复制到当前目录</li>
+<li>重命名’<strong>vivado-vg - Copy.exe</strong>‘为’<strong>vivado.exe</strong>‘<br>之后再打开Vivado就不会报错了</li>
+</ul>
       
     </div>
 
@@ -337,32 +328,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
-          
-            <a href="/tags/GitHub-Pages/" rel="tag">#GitHub Pages</a>
-          
-            <a href="/tags/Coding-Pages/" rel="tag">#Coding Pages</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/02/software-practice-3/" rel="next" title="软件实习笔记三（Qt5.5连接MySQL5.6）">
-                <i class="fa fa-chevron-left"></i> 软件实习笔记三（Qt5.5连接MySQL5.6）
+              <a href="/2018/04/13/datalab/" rel="next" title="深入理解计算机系统（CSAPP）实验二 Datalab">
+                <i class="fa fa-chevron-left"></i> 深入理解计算机系统（CSAPP）实验二 Datalab
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/25/open-grub/" rel="prev" title="调出grub并应用其引导Windows+Ubuntu启动">
-                调出grub并应用其引导Windows+Ubuntu启动 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,7 +365,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/16/hexo-build/" data-title="记录Hexo的搭建过程" data-url="http://xzjqx.data/2015/11/16/hexo-build/">
+      <div class="ds-thread" data-thread-key="2018/04/14/Vivado问题总结/" data-title="Vivado问题总结" data-url="http://xzjqx.data/2018/04/14/Vivado问题总结/">
       </div>
     
   </div>
@@ -528,7 +505,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的安装过程查看Hexo静态博客使用指南"><span class="nav-number">1.</span> <span class="nav-text">Hexo的安装过程查看Hexo静态博客使用指南</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Github-Pages"><span class="nav-number">2.</span> <span class="nav-text">配置 Github Pages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-Github-添加仓库"><span class="nav-number">3.</span> <span class="nav-text">在 Github 添加仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Hexo"><span class="nav-number">4.</span> <span class="nav-text">配置Hexo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vivado-2017-3-启动超时"><span class="nav-number">1.</span> <span class="nav-text">Vivado 2017.3 启动超时</span></a></li></ol></div>
             
           </div>
         </section>

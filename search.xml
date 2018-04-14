@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title><![CDATA[Vivado问题总结]]></title>
+      <url>http://xzjqx.data/2018/04/14/Vivado%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>记录Vivado使用过程中的一些问题。<br><a id="more"></a></p>
+<h2 id="Vivado-2017-3-启动超时"><a href="#Vivado-2017-3-启动超时" class="headerlink" title="Vivado 2017.3 启动超时"></a>Vivado 2017.3 启动超时</h2><p>Vivado启动两分钟后弹出如下界面，显示Vivado启动超时：<br><img src="启动超时.png" alt="启动超时"><br>我是在更新了Windows10系统到1790版本后出现这一问题，在<a href="https://forums.xilinx.com" target="_blank" rel="external">Xilinx论坛</a>发现同一问题，Xilinx官方也发现并解决了这个BUG。</p>
+<blockquote>
+<p>After installing the Windows 10 Fall Creators update (version 1709), when I try to launch Vivado, it fails or crashes.</p>
+</blockquote>
+<p>解决方法如下<a href="https://www.xilinx.com/support/answers/69908.html" target="_blank" rel="external">AR# 69908</a>：</p>
+<blockquote>
+<p>While this update for Windows 10 is not officially supported with Vivado 2017.3, the following work-around is available:</p>
+<ol>
+<li>Navigate to (Vivado Installed Directory)\2017.3\bin\unwrapped\win64.o</li>
+<li>Backup ‘<strong>vivado.exe</strong>‘ by renaming it to ‘<strong>vivado.exe.backup</strong>‘</li>
+<li>Copy ‘<strong>vivado-vg.exe</strong>‘ and paste it into the same folder.</li>
+<li>Rename ‘<strong>vivado-vg - Copy.exe</strong>‘ to ‘<strong>vivado.exe</strong>‘</li>
+</ol>
+</blockquote>
+<p>简单翻译一下：<br>当Windows10更新之后发现不能打开Vivado时，执行以下步骤：</p>
+<ul>
+<li>进入“Vivado安装目录\2017.3\bin\unwrapped\win64.0\”</li>
+<li>将’<strong>vivado.exe</strong>‘重命名为<strong>vivado.exe.backup</strong>‘</li>
+<li>将’<strong>vivado-vg.exe</strong>‘ 复制到当前目录</li>
+<li>重命名’<strong>vivado-vg - Copy.exe</strong>‘为’<strong>vivado.exe</strong>‘<br>之后再打开Vivado就不会报错了</li>
+</ul>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[深入理解计算机系统（CSAPP）实验二 Datalab]]></title>
       <url>http://xzjqx.data/2018/04/13/datalab/</url>
       <content type="html"><![CDATA[<h2 id="bitAnd-x-amp-y-using-only-and"><a href="#bitAnd-x-amp-y-using-only-and" class="headerlink" title="bitAnd - x&amp;y using only ~ and |"></a>bitAnd - x&amp;y using only ~ and |</h2><p>目标：不使用&amp;运算符计算按位与运算<br>方法：运用德·摩根定律：非(P 且 Q) = (非 P) 或 (非 Q)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int bitAnd(int x, int y) &#123;</div><div class="line">  return ~((~x) | (~y));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -380,23 +409,18 @@ Date: 2015年12月23日
     </entry>
     
     <entry>
-      <title><![CDATA[Ubuntu Server 更新源列表]]></title>
-      <url>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</url>
+      <title><![CDATA[Ubuntu Server 安装gnome桌面]]></title>
+      <url>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</url>
       <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 更新源列表
+Title: Ubuntu Server 安装gnome桌面
 Date: 2015年12月15日
 -->
-<p>在<strong>Ubuntu Server</strong>下可以使用如下命令更新源列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo su #获取root权限</div><div class="line">cd /etc/apt</div><div class="line">cp source.list source.list.backup #备份源列表</div><div class="line">vim source.list #编辑源列表</div></pre></td></tr></table></figure></p>
+<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
 <a id="more"></a>
-<p>在source.list文件中从开头加入下列代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div></pre></td></tr></table></figure></p>
-<p>之后使用下列代码更新即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get upgrade -y</div></pre></td></tr></table></figure></p>
-<p>注：使用vim更新源列表可能用到的复制粘贴命令</p>
-<ul>
-<li>y 复制</li>
-<li>yy 复制整行</li>
-<li>p(小写) 在当前光标后粘贴</li>
-<li>P(大写) 在当前光标粘贴</li>
-</ul>]]></content>
+<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
+<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
+<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
       
         <categories>
             
@@ -414,18 +438,23 @@ Date: 2015年12月15日
     </entry>
     
     <entry>
-      <title><![CDATA[Ubuntu Server 安装gnome桌面]]></title>
-      <url>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</url>
+      <title><![CDATA[Ubuntu Server 更新源列表]]></title>
+      <url>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</url>
       <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 安装gnome桌面
+Title: Ubuntu Server 更新源列表
 Date: 2015年12月15日
 -->
-<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
+<p>在<strong>Ubuntu Server</strong>下可以使用如下命令更新源列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo su #获取root权限</div><div class="line">cd /etc/apt</div><div class="line">cp source.list source.list.backup #备份源列表</div><div class="line">vim source.list #编辑源列表</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
-<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
-<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
-<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
+<p>在source.list文件中从开头加入下列代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div></pre></td></tr></table></figure></p>
+<p>之后使用下列代码更新即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get upgrade -y</div></pre></td></tr></table></figure></p>
+<p>注：使用vim更新源列表可能用到的复制粘贴命令</p>
+<ul>
+<li>y 复制</li>
+<li>yy 复制整行</li>
+<li>p(小写) 在当前光标后粘贴</li>
+<li>P(大写) 在当前光标粘贴</li>
+</ul>]]></content>
       
         <categories>
             

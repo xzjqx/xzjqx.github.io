@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xzjqx.data/"/>
-  <updated>2018-04-13T11:44:12.018Z</updated>
+  <updated>2018-04-14T05:57:47.105Z</updated>
   <id>http://xzjqx.data/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vivado问题总结</title>
+    <link href="http://xzjqx.data/2018/04/14/Vivado%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>http://xzjqx.data/2018/04/14/Vivado问题总结/</id>
+    <published>2018-04-14T05:21:46.000Z</published>
+    <updated>2018-04-14T05:57:47.105Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录Vivado使用过程中的一些问题。<br><a id="more"></a></p>
+<h2 id="Vivado-2017-3-启动超时"><a href="#Vivado-2017-3-启动超时" class="headerlink" title="Vivado 2017.3 启动超时"></a>Vivado 2017.3 启动超时</h2><p>Vivado启动两分钟后弹出如下界面，显示Vivado启动超时：<br><img src="启动超时.png" alt="启动超时"><br>我是在更新了Windows10系统到1790版本后出现这一问题，在<a href="https://forums.xilinx.com" target="_blank" rel="external">Xilinx论坛</a>发现同一问题，Xilinx官方也发现并解决了这个BUG。</p>
+<blockquote>
+<p>After installing the Windows 10 Fall Creators update (version 1709), when I try to launch Vivado, it fails or crashes.</p>
+</blockquote>
+<p>解决方法如下<a href="https://www.xilinx.com/support/answers/69908.html" target="_blank" rel="external">AR# 69908</a>：</p>
+<blockquote>
+<p>While this update for Windows 10 is not officially supported with Vivado 2017.3, the following work-around is available:</p>
+<ol>
+<li>Navigate to (Vivado Installed Directory)\2017.3\bin\unwrapped\win64.o</li>
+<li>Backup ‘<strong>vivado.exe</strong>‘ by renaming it to ‘<strong>vivado.exe.backup</strong>‘</li>
+<li>Copy ‘<strong>vivado-vg.exe</strong>‘ and paste it into the same folder.</li>
+<li>Rename ‘<strong>vivado-vg - Copy.exe</strong>‘ to ‘<strong>vivado.exe</strong>‘</li>
+</ol>
+</blockquote>
+<p>简单翻译一下：<br>当Windows10更新之后发现不能打开Vivado时，执行以下步骤：</p>
+<ul>
+<li>进入“Vivado安装目录\2017.3\bin\unwrapped\win64.0\”</li>
+<li>将’<strong>vivado.exe</strong>‘重命名为<strong>vivado.exe.backup</strong>‘</li>
+<li>将’<strong>vivado-vg.exe</strong>‘ 复制到当前目录</li>
+<li>重命名’<strong>vivado-vg - Copy.exe</strong>‘为’<strong>vivado.exe</strong>‘<br>之后再打开Vivado就不会报错了</li>
+</ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录Vivado使用过程中的一些问题。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>深入理解计算机系统（CSAPP）实验二 Datalab</title>
@@ -445,6 +484,41 @@ Date: 2015年12月23日
   </entry>
   
   <entry>
+    <title>Ubuntu Server 安装gnome桌面</title>
+    <link href="http://xzjqx.data/2015/12/15/ubuntu-server-desktop/"/>
+    <id>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</id>
+    <published>2015-12-14T18:03:42.000Z</published>
+    <updated>2017-08-21T05:15:48.580Z</updated>
+    
+    <content type="html"><![CDATA[<!--
+Title: Ubuntu Server 安装gnome桌面
+Date: 2015年12月15日
+-->
+<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
+<a id="more"></a>
+<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
+<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
+<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!--
+Title: Ubuntu Server 安装gnome桌面
+Date: 2015年12月15日
+--&gt;
+&lt;p&gt;上一篇博文提到修改&lt;strong&gt;Ubuntu Server&lt;/strong&gt;的源列表到国内服务器中，接下来可以安装gnome桌面来试试&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术博文" scheme="http://xzjqx.data/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/"/>
+    
+    
+      <category term="ubuntu-server" scheme="http://xzjqx.data/tags/ubuntu-server/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu Server 更新源列表</title>
     <link href="http://xzjqx.data/2015/12/15/ubuntu-server-update-list/"/>
     <id>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</id>
@@ -474,41 +548,6 @@ Title: Ubuntu Server 更新源列表
 Date: 2015年12月15日
 --&gt;
 &lt;p&gt;在&lt;strong&gt;Ubuntu Server&lt;/strong&gt;下可以使用如下命令更新源列表&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo su #获取root权限&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /etc/apt&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cp source.list source.list.backup #备份源列表&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vim source.list #编辑源列表&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术博文" scheme="http://xzjqx.data/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/"/>
-    
-    
-      <category term="ubuntu-server" scheme="http://xzjqx.data/tags/ubuntu-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu Server 安装gnome桌面</title>
-    <link href="http://xzjqx.data/2015/12/15/ubuntu-server-desktop/"/>
-    <id>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</id>
-    <published>2015-12-14T18:03:42.000Z</published>
-    <updated>2017-08-21T05:15:48.580Z</updated>
-    
-    <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 安装gnome桌面
-Date: 2015年12月15日
--->
-<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
-<a id="more"></a>
-<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
-<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
-<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
-<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;!--
-Title: Ubuntu Server 安装gnome桌面
-Date: 2015年12月15日
---&gt;
-&lt;p&gt;上一篇博文提到修改&lt;strong&gt;Ubuntu Server&lt;/strong&gt;的源列表到国内服务器中，接下来可以安装gnome桌面来试试&lt;/p&gt;
     
     </summary>
     
