@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xzjqx.data/categories/index.html</loc>
+    
+    <lastmod>2018-04-17T05:52:00.513Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xzjqx.data/2018/04/14/Vivado%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2018-04-14T05:57:47.105Z</lastmod>
@@ -58,14 +65,14 @@
   </url>
   
   <url>
-    <loc>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</loc>
+    <loc>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</loc>
     
     <lastmod>2017-08-21T05:15:48.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</loc>
+    <loc>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</loc>
     
     <lastmod>2017-08-21T05:15:48.580Z</lastmod>
     
@@ -93,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://xzjqx.data/2015/09/29/software-practice-1/</loc>
+    <loc>http://xzjqx.data/2016/03/27/python-test/</loc>
     
     <lastmod>2017-08-21T05:15:48.578Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xzjqx.data/2016/03/27/python-test/</loc>
+    <loc>http://xzjqx.data/2015/09/29/software-practice-1/</loc>
     
     <lastmod>2017-08-21T05:15:48.578Z</lastmod>
     
