@@ -13,5 +13,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.xzjqx.me/sitemap.xml
-Sitemap: http://www.xzjqx.me/baidusitemap.xml
+Sitemap: http://www.xzjqx.date/sitemap.xml
+Sitemap: http://www.xzjqx.date/baidusitemap.xml
