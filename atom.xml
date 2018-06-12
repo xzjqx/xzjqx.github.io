@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xzjqx.data/"/>
-  <updated>2018-05-10T08:54:04.029Z</updated>
+  <updated>2018-06-12T14:12:50.633Z</updated>
   <id>http://xzjqx.data/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://xzjqx.data/2018/05/10/attacklab/"/>
     <id>http://xzjqx.data/2018/05/10/attacklab/</id>
     <published>2018-05-10T08:08:06.000Z</published>
-    <updated>2018-05-10T08:54:04.029Z</updated>
+    <updated>2018-06-12T14:12:50.633Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>深入理解计算机系统（CSAPP）的实验二是Bomb Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。</p>
+    <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>深入理解计算机系统（CSAPP）的实验三是Attack Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。</p>
 <p>实验提供了五个文件，其作用如下：</p>
 <ul>
 <li>ctarget：用来做代码注入攻击的程序</li>
@@ -146,7 +146,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;p&gt;深入理解计算机系统（CSAPP）的实验二是Bomb Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。&lt;/p&gt;
+      &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;p&gt;深入理解计算机系统（CSAPP）的实验三是Attack Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。&lt;/p&gt;
 &lt;p&gt;实验提供了五个文件，其作用如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ctarget：用来做代码注入攻击的程序&lt;/li&gt;

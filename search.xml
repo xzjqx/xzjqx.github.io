@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[深入理解计算机系统（CSAPP）实验三 Attack Lab]]></title>
       <url>http://xzjqx.data/2018/05/10/attacklab/</url>
-      <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>深入理解计算机系统（CSAPP）的实验二是Bomb Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。</p>
+      <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>深入理解计算机系统（CSAPP）的实验三是Attack Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。</p>
 <p>实验提供了五个文件，其作用如下：</p>
 <ul>
 <li>ctarget：用来做代码注入攻击的程序</li>
