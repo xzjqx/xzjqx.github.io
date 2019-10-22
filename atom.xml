@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xzjqx.data/"/>
-  <updated>2018-06-12T14:12:50.633Z</updated>
+  <updated>2018-06-12T14:29:40.242Z</updated>
   <id>http://xzjqx.data/</id>
   
   <author>
@@ -14,6 +14,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>textedit</title>
+    <link href="http://xzjqx.data/2018/06/12/textedit/"/>
+    <id>http://xzjqx.data/2018/06/12/textedit/</id>
+    <published>2018-06-12T14:29:40.000Z</published>
+    <updated>2018-06-12T14:29:40.242Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Calculator实现文档</title>
+    <link href="http://xzjqx.data/2018/06/12/calculator/"/>
+    <id>http://xzjqx.data/2018/06/12/calculator/</id>
+    <published>2018-06-12T14:27:54.000Z</published>
+    <updated>2018-06-12T14:35:03.314Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。 </p>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h4 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h4><p>Calculator首先通过Qt Designer完成计算器界面的设计，再利用信号和槽函数将计算器中的按键和特定函数相连，当点击计算器按键时，触发槽函数，完成数据的录入，进一步完成表达式的计算，打印出结果。</p>
+<p>Calculator类图如下所示：</p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/Calculator_UML.jpg" alt="Calculator UML"> </p>
+<h4 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h4><p>通过Qt Designer完成计算器UI的设计，在Qt Designer中，通过拖拽控件完成界面设计。</p>
+<p>界面最上方是两个QLabel–expression和result，expression显示当前输入的表达式，result显示计算结果；其余控件全部都是QPushButton，分别对应数字键和操作符。</p>
+<h4 id="信号与槽函数"><a href="#信号与槽函数" class="headerlink" title="信号与槽函数"></a>信号与槽函数</h4><p>Calculator用到的所有信号均为QPushButton的clicked()信号，这个信号当button被按下时发出，触发对应的槽函数。使用Qt Designer的图形化界面连接信号与槽函数。</p>
+<p>Calculator共实现了五个槽函数：</p>
+<ul>
+<li>getValue()：所有的数字按键加上小数点与这个槽函数相连，从按键中获取输入的数字；</li>
+<li>getExpr()：所有的计算操作符与这个槽函数相连，从按键中判断进行何种计算，同时这个槽函数还会完成计算的任务；</li>
+<li>clear()：清除键“c”与这个槽函数相连，完成清除所有数据的操作；</li>
+<li>del()：退格键“&lt;-”与这个槽函数相连，完成清除数字最后一位的操作；</li>
+<li>equal()：等于键“=”与这个槽函数相连，完成计算结果并打印的操作。</li>
+</ul>
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h4><p>Calculator进行了两种运算过程中异常的判断——除0异常和根号下负数异常。实现方法都是在进行相应运算前，使用函数判断数据是否合法，不合法的情况下抛出异常，判断函数的实现如下： </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">isZero</span><span class="params">(<span class="keyword">double</span> v)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (v == <span class="number">0</span>)</div><div class="line">        <span class="keyword">throw</span> v;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">isNeg</span><span class="params">(<span class="keyword">double</span> v)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (v &lt; <span class="number">0</span>)</div><div class="line">        <span class="keyword">throw</span> v;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在运算前调用判断函数确定异常的过程如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    a = isZero(a);</div><div class="line">    num = b / a;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> (<span class="keyword">double</span>) &#123;</div><div class="line">    clear();</div><div class="line">    isExcept = <span class="literal">true</span>;</div><div class="line">    ui.result-&gt;setText(<span class="string">"Invalid input"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    value = isNeg(value);</div><div class="line">    value = <span class="built_in">sqrt</span>(value);</div><div class="line">    val_tmp = <span class="string">"sqrt("</span> + val_tmp + <span class="string">")"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> (<span class="keyword">double</span>) &#123;</div><div class="line">    clear();</div><div class="line">    isExcept = <span class="literal">true</span>;</div><div class="line">    ui.result-&gt;setText(<span class="string">"Invalid input"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>Calculator使用的算法主要集中在getExpr()槽函数对输入的计算上，主要维护两个栈operandStack和operatorStack来进行计算，算法如下：</p>
+<p>Phase1：点击数字键，调用getValue()槽函数进行数字的记录，重复该步骤直到输入一个操作符；</p>
+<p>Phase2：点击运算键，获取输入的运算符，调用getExpr()槽函数</p>
+<ul>
+<li>如果上一个点击的button是数字键，将记录的数据压入operandStack；</li>
+<li>如果运算符长度为1（也就是双目运算符）：<ul>
+<li>如果操作符是“(”，将“(”压入operatorStack；</li>
+<li>如果操作符是“)”，重复计算栈中的数据，直到遇到一个“(”；</li>
+<li>如果运算符是“+”或“-”，重复计算栈中的所有数据，并把操作符压入operatorStack；</li>
+<li>如果运算符是“x”或“/”，重复计算栈中的所有的乘除运算，并把操作符压入operatorStack；</li>
+</ul>
+</li>
+<li>如果运算符长度大于1（也就是单目运算符），则计算当前单目运算，并把结果压入operandStack；</li>
+</ul>
+<p>Phase3：点击等号键时，将栈中剩余部分全部弹出比计算结果，打印最终结果</p>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/operator_priority.gif" alt=""></p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/parentheses.gif" alt=""></p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/unary_operation.gif" alt=""></p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/exception.gif" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;项目介绍&quot;&gt;&lt;a href=&quot;#项目介绍&quot; class=&quot;headerlink&quot; title=&quot;项目介绍&quot;&gt;&lt;/a&gt;项目介绍&lt;/h3&gt;&lt;p&gt;本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtua
+    
+    </summary>
+    
+      <category term="Virtual Studio" scheme="http://xzjqx.data/categories/Virtual-Studio/"/>
+    
+    
+      <category term="C/C++" scheme="http://xzjqx.data/tags/C-C/"/>
+    
+      <category term="Qt" scheme="http://xzjqx.data/tags/Qt/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解计算机系统（CSAPP）实验三 Attack Lab</title>
@@ -729,6 +804,41 @@ Date: 2015年12月23日
   </entry>
   
   <entry>
+    <title>Ubuntu Server 安装gnome桌面</title>
+    <link href="http://xzjqx.data/2015/12/15/ubuntu-server-desktop/"/>
+    <id>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</id>
+    <published>2015-12-14T18:03:42.000Z</published>
+    <updated>2017-08-21T05:15:48.580Z</updated>
+    
+    <content type="html"><![CDATA[<!--
+Title: Ubuntu Server 安装gnome桌面
+Date: 2015年12月15日
+-->
+<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
+<a id="more"></a>
+<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
+<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
+<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!--
+Title: Ubuntu Server 安装gnome桌面
+Date: 2015年12月15日
+--&gt;
+&lt;p&gt;上一篇博文提到修改&lt;strong&gt;Ubuntu Server&lt;/strong&gt;的源列表到国内服务器中，接下来可以安装gnome桌面来试试&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术博文" scheme="http://xzjqx.data/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/"/>
+    
+    
+      <category term="ubuntu-server" scheme="http://xzjqx.data/tags/ubuntu-server/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu Server 更新源列表</title>
     <link href="http://xzjqx.data/2015/12/15/ubuntu-server-update-list/"/>
     <id>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</id>
@@ -758,41 +868,6 @@ Title: Ubuntu Server 更新源列表
 Date: 2015年12月15日
 --&gt;
 &lt;p&gt;在&lt;strong&gt;Ubuntu Server&lt;/strong&gt;下可以使用如下命令更新源列表&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sudo su #获取root权限&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /etc/apt&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cp source.list source.list.backup #备份源列表&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vim source.list #编辑源列表&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术博文" scheme="http://xzjqx.data/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/"/>
-    
-    
-      <category term="ubuntu-server" scheme="http://xzjqx.data/tags/ubuntu-server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu Server 安装gnome桌面</title>
-    <link href="http://xzjqx.data/2015/12/15/ubuntu-server-desktop/"/>
-    <id>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</id>
-    <published>2015-12-14T18:03:42.000Z</published>
-    <updated>2017-08-21T05:15:48.580Z</updated>
-    
-    <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 安装gnome桌面
-Date: 2015年12月15日
--->
-<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
-<a id="more"></a>
-<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
-<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
-<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
-<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;!--
-Title: Ubuntu Server 安装gnome桌面
-Date: 2015年12月15日
---&gt;
-&lt;p&gt;上一篇博文提到修改&lt;strong&gt;Ubuntu Server&lt;/strong&gt;的源列表到国内服务器中，接下来可以安装gnome桌面来试试&lt;/p&gt;
     
     </summary>
     
@@ -933,66 +1008,6 @@ Date: 2015年11月25日
     <summary type="html">
     
       &lt;p&gt;这段时间一直在尝试使用Qt连接上MySQL数据库，真的是有点难啊！！！&lt;br&gt;参考了很多网上的资料，最后才成功的连上了数据库，文末将会有我认为有用的链接。&lt;br&gt;成功后发现其实也没有那么难嘛，只是自己真的是有点傻呢==&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://xzjqx.data/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Qt5" scheme="http://xzjqx.data/tags/Qt5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件实习笔记二（Qt简单对话框实例开发）</title>
-    <link href="http://xzjqx.data/2015/09/30/software-practice-2/"/>
-    <id>http://xzjqx.data/2015/09/30/software-practice-2/</id>
-    <published>2015-09-29T18:01:43.000Z</published>
-    <updated>2017-08-21T05:15:48.579Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近找到Qt5开发系列教程——《QT5开发及实例》，觉得不错，想着就先按照上面的安排来学习软件开发吧，第一章讲述了一个小的对话框的开发实例。<br><a id="more"></a></p>
-<h2 id="首先按照以下过程创建对话框Dialog工程"><a href="#首先按照以下过程创建对话框Dialog工程" class="headerlink" title="首先按照以下过程创建对话框Dialog工程"></a>首先按照以下过程创建对话框Dialog工程</h2><p><img src="http://img.blog.csdn.net/20150930214127088" alt=""><br><img src="http://img.blog.csdn.net/20150930214143294" alt=""><br><img src="http://img.blog.csdn.net/20150930214156046" alt=""><br><img src="http://img.blog.csdn.net/20150930214205792" alt=""></p>
-<h2 id="使用设计器设计图形化界面"><a href="#使用设计器设计图形化界面" class="headerlink" title="使用设计器设计图形化界面"></a>使用设计器设计图形化界面</h2><p>首先打开工程下界面文件中的dialog.ui，进入设计界面如下（<strong>这是我的图形化设计结果</strong>）：<br><img src="http://img.blog.csdn.net/20150930214604064" alt=""></p>
-<p>其中的“输入半径获得圆面积”、“半径：”、“面积”和面积右边的文本框均是从左边的“<strong>Display Widgets</strong>”拖出来的<strong>Label</strong>类，修改<strong>Label</strong>属性可从右下角的属性栏中进行。“半径：”右侧的文本输入框是<strong>LineEdit</strong>控件，“计算”是<strong>Push Button</strong>控件，同样其属性可以修改。此外还可手动拖动控件或<strong>Dialog</strong>调节其大小。最重要的是“面积：”右侧的Label属性设置，将其中的<strong>QFrame</strong>项设置如下：<br><img src="http://img.blog.csdn.net/20150930215716474" alt=""></p>
-<h2 id="增加按键响应代码实现计算功能"><a href="#增加按键响应代码实现计算功能" class="headerlink" title="增加按键响应代码实现计算功能"></a>增加按键响应代码实现计算功能</h2><p>属性全部设置好后就要添加面积计算实现代码了，在dialog.cpp中添加如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> Dialog::on_pushButton_clicked()  </div><div class="line">&#123;  </div><div class="line">    bool ok;  </div><div class="line">    QString tmpStr;  </div><div class="line">    QString valStr = ui-&gt;lineEdit-&gt;text();  </div><div class="line">    <span class="keyword">int</span> valInt = valStr.toInt(&amp;ok);  </div><div class="line">    <span class="keyword">double</span> area = valInt * valInt * Pi;  </div><div class="line">    ui-&gt;areaLable_2-&gt;setText(tmpStr.setNum(area));  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>其中Pi需要全局定义<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">double</span> Pi = <span class="number">3.1415926</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="构建并运行工程检验成果"><a href="#构建并运行工程检验成果" class="headerlink" title="构建并运行工程检验成果"></a>构建并运行工程检验成果</h2><p>如果出现下述界面，那么恭喜你完成这这个小程序的开发<br><img src="http://img.blog.csdn.net/20150930220816632" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近找到Qt5开发系列教程——《QT5开发及实例》，觉得不错，想着就先按照上面的安排来学习软件开发吧，第一章讲述了一个小的对话框的开发实例。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://xzjqx.data/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Qt5" scheme="http://xzjqx.data/tags/Qt5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件实习笔记一（Qt安装与简单使用）</title>
-    <link href="http://xzjqx.data/2015/09/29/software-practice-1/"/>
-    <id>http://xzjqx.data/2015/09/29/software-practice-1/</id>
-    <published>2015-09-28T17:50:34.000Z</published>
-    <updated>2017-08-21T05:15:48.578Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="下载带有MinGW的Qt-类库和Qt-Creator"><a href="#下载带有MinGW的Qt-类库和Qt-Creator" class="headerlink" title="下载带有MinGW的Qt 类库和Qt Creator"></a>下载带有MinGW的Qt 类库和Qt Creator</h2><p>我先是下了一个不带MinGW的64位版，相使用自己电脑里的MinGW，但是发现并不能使用，所以，重新下过带MinGW的32位版。<br>提供<a href="https://www.qt.io/cn/download-open-source/" target="_blank">下载地址</a>和<a href="https://pan.baidu.com/s/1pJOkZjH" target="_blank">网盘地址</a></p>
-<a id="more"></a>
-<h2 id="正常安装Qt"><a href="#正常安装Qt" class="headerlink" title="正常安装Qt"></a>正常安装Qt</h2><p>安装过程就不多说了，正常的安装过程会把Qt类库和Qt Creator一同装在你的电脑里了</p>
-<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>安装完成后在电脑里找到Qt Creator并打开，打开工具-选项，在左侧找到构建与运行，若安装正确完成，如图所示，在Qt Versions项会自动检测出编译器<br><img src="http://img.blog.csdn.net/20150929203818677" alt="Qt Versions"></p>
-<p>若不能得到以上画面，那也不要紧，接下来点击“构建套件（Kit）”，修改Desktop志下述画面的情形，再设为默认即可<br><img src="http://img.blog.csdn.net/20150929203757054" alt="构建套件"></p>
-<h3 id="接下来可以开始建立工程简单使用Qt-Creator了"><a href="#接下来可以开始建立工程简单使用Qt-Creator了" class="headerlink" title="接下来可以开始建立工程简单使用Qt Creator了"></a>接下来可以开始建立工程简单使用Qt Creator了</h3><p>点击New Project，选择默认设置<br><img src="http://img.blog.csdn.net/20150929203734994" alt=""></p>
-<p>再修改工程名，并设置工程目录（<strong>此时要注意路径中不能含有中文，否则无法运行与调试</strong>）<br><img src="http://img.blog.csdn.net/20150929203713543" alt=""></p>
-<p>接下来一直选择默认设置就好了<br><img src="http://img.blog.csdn.net/20150929203657695" alt=""></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>修改main.cpp代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;QApplication&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;QVBoxLayout&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;QLabel&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;QPushButton&gt;  </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span>  </span></div><div class="line"><span class="function"></span>&#123;  </div><div class="line">    <span class="function">QApplication <span class="title">app</span><span class="params">(argc,argv)</span></span>;  </div><div class="line"></div><div class="line">    QWidget *window = <span class="keyword">new</span> QWidget;  </div><div class="line">    window-&gt;setWindowTitle(<span class="string">"QtTest"</span>);  </div><div class="line"></div><div class="line">    <span class="comment">//QLabel *label= new QLabel("Hello Qt");  </span></div><div class="line">    QLabel *label = <span class="keyword">new</span> QLabel(<span class="string">"&lt;h2&gt;&lt;i&gt;Hello&lt;/i&gt;"</span><span class="string">"  &lt;font color = red&gt;Qt&lt;/font&gt;&lt;/h2&gt;"</span>);  </div><div class="line"></div><div class="line">    QPushButton *button=<span class="keyword">new</span> QPushButton(<span class="string">"Quit"</span>);  </div><div class="line">    QObject::connect(button,SIGNAL(clicked()),&amp;app,SLOT(quit()));  </div><div class="line"></div><div class="line">    QVBoxLayout *layout=<span class="keyword">new</span> QVBoxLayout;  </div><div class="line">    layout-&gt;addWidget(label);  </div><div class="line">    layout-&gt;addWidget(button);  </div><div class="line">    window-&gt;setLayout(layout);  </div><div class="line"></div><div class="line">    window-&gt;show();  </div><div class="line"></div><div class="line">    <span class="keyword">return</span> app.exec();  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>之后点击运行，会出现下述小窗口，那么恭喜你，你的Qt Creator已经可以完美工作了！！！<br><img src="http://img.blog.csdn.net/20150929203628947" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;下载带有MinGW的Qt-类库和Qt-Creator&quot;&gt;&lt;a href=&quot;#下载带有MinGW的Qt-类库和Qt-Creator&quot; class=&quot;headerlink&quot; title=&quot;下载带有MinGW的Qt 类库和Qt Creator&quot;&gt;&lt;/a&gt;下载带有MinGW的Qt 类库和Qt Creator&lt;/h2&gt;&lt;p&gt;我先是下了一个不带MinGW的64位版，相使用自己电脑里的MinGW，但是发现并不能使用，所以，重新下过带MinGW的32位版。&lt;br&gt;提供&lt;a href=&quot;https://www.qt.io/cn/download-open-source/&quot; target=&quot;_blank&quot;&gt;下载地址&lt;/a&gt;和&lt;a href=&quot;https://pan.baidu.com/s/1pJOkZjH&quot; target=&quot;_blank&quot;&gt;网盘地址&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     

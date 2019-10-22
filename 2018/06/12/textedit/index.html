@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="linux,crontab,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -59,18 +59,14 @@
 
 
 
-<meta name="description" content="crontab是linux下的一个定时任务工具 Usage123456usage:  crontab [-u user] file        crontab [-u user] [ -e | -l | -r ]                (default operation is replace, per 1003.2)        -e      (edit user&amp;apos;s">
-<meta name="keywords" content="linux,crontab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初次使用crontab工具">
-<meta property="og:url" content="http://xzjqx.data/2016/04/24/初次使用crontab工具/index.html">
+<meta property="og:title" content="textedit">
+<meta property="og:url" content="http://xzjqx.data/2018/06/12/textedit/index.html">
 <meta property="og:site_name" content="xzjqx&#39;s blog">
-<meta property="og:description" content="crontab是linux下的一个定时任务工具 Usage123456usage:  crontab [-u user] file        crontab [-u user] [ -e | -l | -r ]                (default operation is replace, per 1003.2)        -e      (edit user&amp;apos;s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-21T05:15:48.581Z">
+<meta property="og:updated_time" content="2018-06-12T14:29:40.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初次使用crontab工具">
-<meta name="twitter:description" content="crontab是linux下的一个定时任务工具 Usage123456usage:  crontab [-u user] file        crontab [-u user] [ -e | -l | -r ]                (default operation is replace, per 1003.2)        -e      (edit user&amp;apos;s">
+<meta name="twitter:title" content="textedit">
 
 
 
@@ -88,7 +84,7 @@
   };
 </script>
 
-  <title> 初次使用crontab工具 | xzjqx's blog </title>
+  <title> textedit | xzjqx's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +246,7 @@
             
             
               
-                初次使用crontab工具
+                textedit
               
             
           </h1>
@@ -262,35 +258,16 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-24T17:22:13+08:00" content="2016-04-24">
-              2016-04-24
+            <time itemprop="dateCreated" datetime="2018-06-12T22:29:40+08:00" content="2018-06-12">
+              2018-06-12
             </time>
           </span>
 
-          <span class="post-count">&nbsp; | &nbsp;字数 744</span>
-          <span class="post-count">&nbsp; | &nbsp;阅读预计 4分钟</span>
+          <span class="post-count">&nbsp; | &nbsp;字数 0</span>
+          <span class="post-count">&nbsp; | &nbsp;阅读预计 0分钟</span>
           <!--<span class="busuanzi_container_page_pv">&nbsp; | &nbsp;阅读次数<span id="busuanzi_value_page_pv"></span></span>-->
 
           <!--
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术博文/" itemprop="url" rel="index">
-                    <span itemprop="name">技术博文</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
           -->
 
@@ -299,8 +276,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/24/初次使用crontab工具/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/24/初次使用crontab工具/" itemprop="commentsCount"></span>
+                <a href="/2018/06/12/textedit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/12/textedit/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,13 +300,7 @@
       
 
       
-        <!-- Date: 2016-04-23 -->
-<p>crontab是linux下的一个定时任务工具</p>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">usage:  crontab [-u user] file</div><div class="line">        crontab [-u user] [ -e | -l | -r ]</div><div class="line">                (default operation is replace, per 1003.2)</div><div class="line">        -e      (edit user&apos;s crontab)</div><div class="line">        -l      (list user&apos;s crontab)</div><div class="line">        -r      (delete user&apos;s crontab)</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="简单解释"><a href="#简单解释" class="headerlink" title="简单解释"></a>简单解释</h3><p>crontab [-u username] [-l|-e|-r]<br>选项与参数：<br>-u  ：只有 root 才能进行这个任务，亦即帮其他使用者创建/移除 crontab 工作排程；<br>-e  ：编辑 crontab 的工作内容<br>-l  ：查阅 crontab 的工作内容<br>-r  ：移除所有的 crontab 的工作内容，若仅要移除一项，请用 -e 去编辑</p>
-<h3 id="特殊符号使用"><a href="#特殊符号使用" class="headerlink" title="特殊符号使用"></a>特殊符号使用</h3><p>* ： 表示任何时刻<br>, ： 表示分割<br>－ ：表示一个段，如第二端里： 1-5，就表示1到5点<br>/n : 表示每个n的单位执行一次，如第二段里，*/1 , 就表示每隔1个小时执行一次命令。也可以写成1-23/1.</p>
-<h3 id="一些实例"><a href="#一些实例" class="headerlink" title="一些实例"></a>一些实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">43 21 * * *              21:43 执行</div><div class="line">15 05 * * *              05:15 执行</div><div class="line">0 17 * * *               17:00 执行</div><div class="line">0 17 * * 1               每周一的 17:00 执行</div><div class="line">0,10 17 * * 0,2,3        每周日,周二,周三的 17:00和 17:10 执行</div><div class="line">0-10 17 1 * *            毎月1日从 17:00到7:10 毎隔1分钟 执行</div><div class="line">0 0 1,15 * 1             毎月1日和 15日和 一日的 0:00 执行</div><div class="line">42 4 1 * *               毎月1日的 4:42分 执行</div><div class="line">0 21 * * 1-6             周一到周六 21:00 执行</div><div class="line">0,10,20,30,40,50 * * * *  每隔10分 执行</div><div class="line">*/10 * * * *              每隔10分 执行</div><div class="line">* 1 * * *                 从1:0到1:59 每隔1分钟 执行</div><div class="line">0 1 * * *                 1:00 执行</div><div class="line">0 */1 * * *               毎时0分 每隔1小时 执行</div><div class="line">0 * * * *                 毎时0分 每隔1小时 执行</div><div class="line">2 8-20/3 * * *            8:02,11:02,14:02,17:02,20:02 执行</div><div class="line">30 5 1,15 * *             1日 和 15日的 5:30 执行</div></pre></td></tr></table></figure>
+        
       
     </div>
 
@@ -341,30 +312,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/linux/" rel="tag">#linux</a>
-          
-            <a href="/tags/crontab/" rel="tag">#crontab</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/13/Python登录学校OJ爬取AC代码/" rel="next" title="Python登录学校OJ爬取AC代码">
-                <i class="fa fa-chevron-left"></i> Python登录学校OJ爬取AC代码
+              <a href="/2018/06/12/calculator/" rel="next" title="Calculator实现文档">
+                <i class="fa fa-chevron-left"></i> Calculator实现文档
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/13/datalab/" rel="prev" title="深入理解计算机系统（CSAPP）实验一 Data Lab">
-                深入理解计算机系统（CSAPP）实验一 Data Lab <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -390,7 +349,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/24/初次使用crontab工具/" data-title="初次使用crontab工具" data-url="http://xzjqx.data/2016/04/24/初次使用crontab工具/">
+      <div class="ds-thread" data-thread-key="2018/06/12/textedit/" data-title="textedit" data-url="http://xzjqx.data/2018/06/12/textedit/">
       </div>
     
   </div>
@@ -521,7 +480,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">1.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单解释"><span class="nav-number">1.1.</span> <span class="nav-text">简单解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊符号使用"><span class="nav-number">1.2.</span> <span class="nav-text">特殊符号使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些实例"><span class="nav-number">1.3.</span> <span class="nav-text">一些实例</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

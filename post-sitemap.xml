@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://xzjqx.data/2018/06/12/calculator/</loc>
+        <lastmod>2018-06-12T14:35:03.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://xzjqx.data/2018/06/12/textedit/</loc>
+        <lastmod>2018-06-12T14:29:40.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://xzjqx.data/2018/05/10/attacklab/</loc>
         <lastmod>2018-06-12T14:12:50.633Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -63,7 +79,7 @@
     </url>
 
     <url>
-        <loc>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</loc>
+        <loc>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</loc>
         <lastmod>2017-08-21T05:15:48.580Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -71,7 +87,7 @@
     </url>
 
     <url>
-        <loc>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</loc>
+        <loc>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</loc>
         <lastmod>2017-08-21T05:15:48.580Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,7 +175,7 @@
     </url>
 
     <url>
-        <loc>http://xzjqx.data/2016/04/07/Python%E5%AE%9E%E7%8E%B0U%E7%9B%98%E5%A4%87%E4%BB%BD%E5%8A%9F%E8%83%BD/</loc>
+        <loc>http://xzjqx.data/2015/12/23/Minecraft-server/</loc>
         <lastmod>2017-08-21T05:15:48.568Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -167,7 +183,7 @@
     </url>
 
     <url>
-        <loc>http://xzjqx.data/2015/12/23/Minecraft-server/</loc>
+        <loc>http://xzjqx.data/2016/04/07/Python%E5%AE%9E%E7%8E%B0U%E7%9B%98%E5%A4%87%E4%BB%BD%E5%8A%9F%E8%83%BD/</loc>
         <lastmod>2017-08-21T05:15:48.568Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -128,15 +128,22 @@
     </url>
 
     <url>
-        <loc>http://xzjqx.data/tags/C-C/</loc>
+        <loc>http://xzjqx.data/tags/CSAPP/</loc>
         <lastmod>2018-06-12T14:12:50.633Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://xzjqx.data/tags/CSAPP/</loc>
-        <lastmod>2018-06-12T14:12:50.633Z</lastmod>
+        <loc>http://xzjqx.data/tags/C-C/</loc>
+        <lastmod>2018-06-12T14:35:03.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xzjqx.data/tags/Qt/</loc>
+        <lastmod>2018-06-12T14:35:03.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

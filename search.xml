@@ -4,6 +4,73 @@
   
     
     <entry>
+      <title><![CDATA[textedit]]></title>
+      <url>http://xzjqx.data/2018/06/12/textedit/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Calculator实现文档]]></title>
+      <url>http://xzjqx.data/2018/06/12/calculator/</url>
+      <content type="html"><![CDATA[<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。 </p>
+<h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h4 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h4><p>Calculator首先通过Qt Designer完成计算器界面的设计，再利用信号和槽函数将计算器中的按键和特定函数相连，当点击计算器按键时，触发槽函数，完成数据的录入，进一步完成表达式的计算，打印出结果。</p>
+<p>Calculator类图如下所示：</p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/Calculator_UML.jpg" alt="Calculator UML"> </p>
+<h4 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h4><p>通过Qt Designer完成计算器UI的设计，在Qt Designer中，通过拖拽控件完成界面设计。</p>
+<p>界面最上方是两个QLabel–expression和result，expression显示当前输入的表达式，result显示计算结果；其余控件全部都是QPushButton，分别对应数字键和操作符。</p>
+<h4 id="信号与槽函数"><a href="#信号与槽函数" class="headerlink" title="信号与槽函数"></a>信号与槽函数</h4><p>Calculator用到的所有信号均为QPushButton的clicked()信号，这个信号当button被按下时发出，触发对应的槽函数。使用Qt Designer的图形化界面连接信号与槽函数。</p>
+<p>Calculator共实现了五个槽函数：</p>
+<ul>
+<li>getValue()：所有的数字按键加上小数点与这个槽函数相连，从按键中获取输入的数字；</li>
+<li>getExpr()：所有的计算操作符与这个槽函数相连，从按键中判断进行何种计算，同时这个槽函数还会完成计算的任务；</li>
+<li>clear()：清除键“c”与这个槽函数相连，完成清除所有数据的操作；</li>
+<li>del()：退格键“&lt;-”与这个槽函数相连，完成清除数字最后一位的操作；</li>
+<li>equal()：等于键“=”与这个槽函数相连，完成计算结果并打印的操作。</li>
+</ul>
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h4><p>Calculator进行了两种运算过程中异常的判断——除0异常和根号下负数异常。实现方法都是在进行相应运算前，使用函数判断数据是否合法，不合法的情况下抛出异常，判断函数的实现如下： </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">isZero</span><span class="params">(<span class="keyword">double</span> v)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (v == <span class="number">0</span>)</div><div class="line">        <span class="keyword">throw</span> v;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">isNeg</span><span class="params">(<span class="keyword">double</span> v)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (v &lt; <span class="number">0</span>)</div><div class="line">        <span class="keyword">throw</span> v;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在运算前调用判断函数确定异常的过程如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    a = isZero(a);</div><div class="line">    num = b / a;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> (<span class="keyword">double</span>) &#123;</div><div class="line">    clear();</div><div class="line">    isExcept = <span class="literal">true</span>;</div><div class="line">    ui.result-&gt;setText(<span class="string">"Invalid input"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    value = isNeg(value);</div><div class="line">    value = <span class="built_in">sqrt</span>(value);</div><div class="line">    val_tmp = <span class="string">"sqrt("</span> + val_tmp + <span class="string">")"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> (<span class="keyword">double</span>) &#123;</div><div class="line">    clear();</div><div class="line">    isExcept = <span class="literal">true</span>;</div><div class="line">    ui.result-&gt;setText(<span class="string">"Invalid input"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>Calculator使用的算法主要集中在getExpr()槽函数对输入的计算上，主要维护两个栈operandStack和operatorStack来进行计算，算法如下：</p>
+<p>Phase1：点击数字键，调用getValue()槽函数进行数字的记录，重复该步骤直到输入一个操作符；</p>
+<p>Phase2：点击运算键，获取输入的运算符，调用getExpr()槽函数</p>
+<ul>
+<li>如果上一个点击的button是数字键，将记录的数据压入operandStack；</li>
+<li>如果运算符长度为1（也就是双目运算符）：<ul>
+<li>如果操作符是“(”，将“(”压入operatorStack；</li>
+<li>如果操作符是“)”，重复计算栈中的数据，直到遇到一个“(”；</li>
+<li>如果运算符是“+”或“-”，重复计算栈中的所有数据，并把操作符压入operatorStack；</li>
+<li>如果运算符是“x”或“/”，重复计算栈中的所有的乘除运算，并把操作符压入operatorStack；</li>
+</ul>
+</li>
+<li>如果运算符长度大于1（也就是单目运算符），则计算当前单目运算，并把结果压入operandStack；</li>
+</ul>
+<p>Phase3：点击等号键时，将栈中剩余部分全部弹出比计算结果，打印最终结果</p>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/operator_priority.gif" alt=""></p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/parentheses.gif" alt=""></p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/unary_operation.gif" alt=""></p>
+<p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/exception.gif" alt=""></p>]]></content>
+      
+        <categories>
+            
+            <category> Virtual Studio </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> Qt </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[深入理解计算机系统（CSAPP）实验三 Attack Lab]]></title>
       <url>http://xzjqx.data/2018/05/10/attacklab/</url>
       <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>深入理解计算机系统（CSAPP）的实验三是Attack Lab。实验分为两个部分，分别对应一种攻击方式：代码注入攻击（Code Injection Attacks）和ROP攻击（）。我们的任务是完成五个这两类攻击。</p>
@@ -642,23 +709,18 @@ Date: 2015年12月23日
     </entry>
     
     <entry>
-      <title><![CDATA[Ubuntu Server 更新源列表]]></title>
-      <url>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</url>
+      <title><![CDATA[Ubuntu Server 安装gnome桌面]]></title>
+      <url>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</url>
       <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 更新源列表
+Title: Ubuntu Server 安装gnome桌面
 Date: 2015年12月15日
 -->
-<p>在<strong>Ubuntu Server</strong>下可以使用如下命令更新源列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo su #获取root权限</div><div class="line">cd /etc/apt</div><div class="line">cp source.list source.list.backup #备份源列表</div><div class="line">vim source.list #编辑源列表</div></pre></td></tr></table></figure></p>
+<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
 <a id="more"></a>
-<p>在source.list文件中从开头加入下列代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div></pre></td></tr></table></figure></p>
-<p>之后使用下列代码更新即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get upgrade -y</div></pre></td></tr></table></figure></p>
-<p>注：使用vim更新源列表可能用到的复制粘贴命令</p>
-<ul>
-<li>y 复制</li>
-<li>yy 复制整行</li>
-<li>p(小写) 在当前光标后粘贴</li>
-<li>P(大写) 在当前光标粘贴</li>
-</ul>]]></content>
+<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
+<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
+<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
+<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
       
         <categories>
             
@@ -676,18 +738,23 @@ Date: 2015年12月15日
     </entry>
     
     <entry>
-      <title><![CDATA[Ubuntu Server 安装gnome桌面]]></title>
-      <url>http://xzjqx.data/2015/12/15/ubuntu-server-desktop/</url>
+      <title><![CDATA[Ubuntu Server 更新源列表]]></title>
+      <url>http://xzjqx.data/2015/12/15/ubuntu-server-update-list/</url>
       <content type="html"><![CDATA[<!--
-Title: Ubuntu Server 安装gnome桌面
+Title: Ubuntu Server 更新源列表
 Date: 2015年12月15日
 -->
-<p>上一篇博文提到修改<strong>Ubuntu Server</strong>的源列表到国内服务器中，接下来可以安装gnome桌面来试试</p>
+<p>在<strong>Ubuntu Server</strong>下可以使用如下命令更新源列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo su #获取root权限</div><div class="line">cd /etc/apt</div><div class="line">cp source.list source.list.backup #备份源列表</div><div class="line">vim source.list #编辑源列表</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>首先展示几张<strong>ubuntu-gnome-desktop</strong>的图片<br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_sock.png" alt="gnome-sock"><br><!-- more --><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_login.png" alt="gnome-login"><br><img src="http://7xo385.com1.z0.glb.clouddn.com/gnome_desktop.png" alt="gnome-desktop"></p>
-<p>为防止安装失败首先更新系统软件列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
-<p>执行下列命令安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install gnome-core</div><div class="line">sudo apt-get install ubuntu-gnome-desktop</div></pre></td></tr></table></figure></p>
-<p>我第一次没有安装<strong>gnome-core</strong>导致，导致多次安装失败，结果还重装了几次系统<del datetime="2015-12-15T09:17:14+00:00">还好是虚拟机</del></p>]]></content>
+<p>在source.list文件中从开头加入下列代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-backports multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-proposed multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-security multiverse restricted universe</div><div class="line">deb-src http://mirrors.ustc.edu.cn/ubuntu trusty-updates multiverse restricted universe</div></pre></td></tr></table></figure></p>
+<p>之后使用下列代码更新即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get update</div><div class="line">apt-get upgrade -y</div></pre></td></tr></table></figure></p>
+<p>注：使用vim更新源列表可能用到的复制粘贴命令</p>
+<ul>
+<li>y 复制</li>
+<li>yy 复制整行</li>
+<li>p(小写) 在当前光标后粘贴</li>
+<li>P(大写) 在当前光标粘贴</li>
+</ul>]]></content>
       
         <categories>
             
