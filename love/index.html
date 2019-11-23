@@ -1,0 +1,90 @@
+<!--
+ * @Author: Xiao Jian
+ * @Date: 2019-11-23 16:21:09
+ * @Descripttion: 
+ * @version: 
+ -->
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>肖健喜欢莫莉萍</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				致：我家超级无敌巨可爱的小姐姐——莫莉萍<br />
+				<span class="space"/><span class="space"/><span class="space"/><span class="space"/>很幸运我们都在需要彼此的时候相遇了<br />
+				<span class="space"/><span class="space"/><span class="space"/><span class="space"/>真的很幸运~<br /><br />
+				听说，女孩子见到花都会开心起来~<br />
+				<span class="space"/><span class="space"/><span class="space"/><span class="space"/>那，右边就是我给你准备的花~<br /><br />
+				我知道自己不太会说话，只能寄希望于这些花能让你开心起来了<br />
+				<span class="space"/><span class="space"/><span class="space"/><span class="space"/>也希望你每天都开开心心，快快乐乐~<br /><br />
+				你永远都是我的小可爱(*＾-＾*)<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						与小姐姐在一起
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						永远开心快乐<br/>
+						<div class="signature">- 你的小哥哥——肖健</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Inspired by <a href="http://love.hackerzhou.me">FlowerPower</a> project.<br />
+			Copyright © 2019 <a href='https://xzjqx.github.io'>xzjqx.github.io</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2019, 10, 2);
+		together.setHours(22);
+		together.setMinutes(15);
+		together.setSeconds(33);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
