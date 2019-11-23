@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xzjqx.data/"/>
-  <updated>2018-06-12T14:29:40.242Z</updated>
+  <updated>2019-11-23T03:44:21.403Z</updated>
   <id>http://xzjqx.data/</id>
   
   <author>
@@ -16,27 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>textedit</title>
-    <link href="http://xzjqx.data/2018/06/12/textedit/"/>
-    <id>http://xzjqx.data/2018/06/12/textedit/</id>
-    <published>2018-06-12T14:29:40.000Z</published>
-    <updated>2018-06-12T14:29:40.242Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Calculator实现文档</title>
     <link href="http://xzjqx.data/2018/06/12/calculator/"/>
     <id>http://xzjqx.data/2018/06/12/calculator/</id>
     <published>2018-06-12T14:27:54.000Z</published>
-    <updated>2018-06-12T14:35:03.314Z</updated>
+    <updated>2019-11-23T03:44:21.403Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。 </p>
+    <content type="html"><![CDATA[<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。<br><a id="more"></a></p>
 <h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h4 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h4><p>Calculator首先通过Qt Designer完成计算器界面的设计，再利用信号和槽函数将计算器中的按键和特定函数相连，当点击计算器按键时，触发槽函数，完成数据的录入，进一步完成表达式的计算，打印出结果。</p>
 <p>Calculator类图如下所示：</p>
 <p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/Calculator_UML.jpg" alt="Calculator UML"> </p>
@@ -77,7 +63,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;项目介绍&quot;&gt;&lt;a href=&quot;#项目介绍&quot; class=&quot;headerlink&quot; title=&quot;项目介绍&quot;&gt;&lt;/a&gt;项目介绍&lt;/h3&gt;&lt;p&gt;本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtua
+      &lt;h3 id=&quot;项目介绍&quot;&gt;&lt;a href=&quot;#项目介绍&quot; class=&quot;headerlink&quot; title=&quot;项目介绍&quot;&gt;&lt;/a&gt;项目介绍&lt;/h3&gt;&lt;p&gt;本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。&lt;br&gt;
     
     </summary>
     
@@ -1008,6 +994,34 @@ Date: 2015年11月25日
     <summary type="html">
     
       &lt;p&gt;这段时间一直在尝试使用Qt连接上MySQL数据库，真的是有点难啊！！！&lt;br&gt;参考了很多网上的资料，最后才成功的连上了数据库，文末将会有我认为有用的链接。&lt;br&gt;成功后发现其实也没有那么难嘛，只是自己真的是有点傻呢==&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://xzjqx.data/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Qt5" scheme="http://xzjqx.data/tags/Qt5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件实习笔记二（Qt简单对话框实例开发）</title>
+    <link href="http://xzjqx.data/2015/09/30/software-practice-2/"/>
+    <id>http://xzjqx.data/2015/09/30/software-practice-2/</id>
+    <published>2015-09-29T18:01:43.000Z</published>
+    <updated>2017-08-21T05:15:48.579Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近找到Qt5开发系列教程——《QT5开发及实例》，觉得不错，想着就先按照上面的安排来学习软件开发吧，第一章讲述了一个小的对话框的开发实例。<br><a id="more"></a></p>
+<h2 id="首先按照以下过程创建对话框Dialog工程"><a href="#首先按照以下过程创建对话框Dialog工程" class="headerlink" title="首先按照以下过程创建对话框Dialog工程"></a>首先按照以下过程创建对话框Dialog工程</h2><p><img src="http://img.blog.csdn.net/20150930214127088" alt=""><br><img src="http://img.blog.csdn.net/20150930214143294" alt=""><br><img src="http://img.blog.csdn.net/20150930214156046" alt=""><br><img src="http://img.blog.csdn.net/20150930214205792" alt=""></p>
+<h2 id="使用设计器设计图形化界面"><a href="#使用设计器设计图形化界面" class="headerlink" title="使用设计器设计图形化界面"></a>使用设计器设计图形化界面</h2><p>首先打开工程下界面文件中的dialog.ui，进入设计界面如下（<strong>这是我的图形化设计结果</strong>）：<br><img src="http://img.blog.csdn.net/20150930214604064" alt=""></p>
+<p>其中的“输入半径获得圆面积”、“半径：”、“面积”和面积右边的文本框均是从左边的“<strong>Display Widgets</strong>”拖出来的<strong>Label</strong>类，修改<strong>Label</strong>属性可从右下角的属性栏中进行。“半径：”右侧的文本输入框是<strong>LineEdit</strong>控件，“计算”是<strong>Push Button</strong>控件，同样其属性可以修改。此外还可手动拖动控件或<strong>Dialog</strong>调节其大小。最重要的是“面积：”右侧的Label属性设置，将其中的<strong>QFrame</strong>项设置如下：<br><img src="http://img.blog.csdn.net/20150930215716474" alt=""></p>
+<h2 id="增加按键响应代码实现计算功能"><a href="#增加按键响应代码实现计算功能" class="headerlink" title="增加按键响应代码实现计算功能"></a>增加按键响应代码实现计算功能</h2><p>属性全部设置好后就要添加面积计算实现代码了，在dialog.cpp中添加如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> Dialog::on_pushButton_clicked()  </div><div class="line">&#123;  </div><div class="line">    bool ok;  </div><div class="line">    QString tmpStr;  </div><div class="line">    QString valStr = ui-&gt;lineEdit-&gt;text();  </div><div class="line">    <span class="keyword">int</span> valInt = valStr.toInt(&amp;ok);  </div><div class="line">    <span class="keyword">double</span> area = valInt * valInt * Pi;  </div><div class="line">    ui-&gt;areaLable_2-&gt;setText(tmpStr.setNum(area));  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中Pi需要全局定义<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">double</span> Pi = <span class="number">3.1415926</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="构建并运行工程检验成果"><a href="#构建并运行工程检验成果" class="headerlink" title="构建并运行工程检验成果"></a>构建并运行工程检验成果</h2><p>如果出现下述界面，那么恭喜你完成这这个小程序的开发<br><img src="http://img.blog.csdn.net/20150930220816632" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近找到Qt5开发系列教程——《QT5开发及实例》，觉得不错，想着就先按照上面的安排来学习软件开发吧，第一章讲述了一个小的对话框的开发实例。&lt;br&gt;
     
     </summary>
     

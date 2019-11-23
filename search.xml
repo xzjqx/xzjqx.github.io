@@ -4,17 +4,9 @@
   
     
     <entry>
-      <title><![CDATA[textedit]]></title>
-      <url>http://xzjqx.data/2018/06/12/textedit/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Calculator实现文档]]></title>
       <url>http://xzjqx.data/2018/06/12/calculator/</url>
-      <content type="html"><![CDATA[<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。 </p>
+      <content type="html"><![CDATA[<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>本项目在Virtual Studio2015中实现了一个类似Windows系统中的计算器程序，使用VS中的QT Virtual Studio Tools工具在VS中调用Qt的库函数，以通过Qt实现这样一个计算器。<br><a id="more"></a></p>
 <h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><h4 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h4><p>Calculator首先通过Qt Designer完成计算器界面的设计，再利用信号和槽函数将计算器中的按键和特定函数相连，当点击计算器按键时，触发槽函数，完成数据的录入，进一步完成表达式的计算，打印出结果。</p>
 <p>Calculator类图如下所示：</p>
 <p><img src="https://github.com/xzjqx/Calculator_Qt/blob/master/images/Calculator_UML.jpg" alt="Calculator UML"> </p>
